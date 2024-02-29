@@ -15,12 +15,13 @@
     let congelados = [];
     let doces = [];
     let padaria = [];
+    let outros = [];
     let adicionarMais = "sim";
 
 
     while (adicionarMais.toLowerCase() === "sim") {
       let comida = prompt("Qual comida você deseja inserir?");
-      let categoria = prompt("Em qual categoria essa comida se encaixa: 'frutas', 'laticínios', 'doces' ou 'congelados'?");
+      let categoria = prompt("Em qual categoria essa comida se encaixa: frutas, laticínios, doces, congelados, padaria ou outros?");
       if (categoria.toLowerCase() === "frutas") {
         frutas.push(comida);
       } else if (categoria.toLowerCase() === "laticínios") {
@@ -31,6 +32,8 @@
         congelados.push(comida);
       } else if (categoria.toLowerCase() === "padaria") {
         padaria.push(comida);
+      } else if (categoria.toLowerCase() === "outros") {
+        outros.push(comida);
       } else {
         alert("Desculpe, mas categoria não pré-determinada");
       }
@@ -57,6 +60,9 @@
 
     listaExibicao += "Padaria:\n";
     listaExibicao += padaria.join(", ") + "\n\n";
+
+    listaExibicao += "Outros: \n";
+    listaExibicao += outros.join(",") + "\n\n";
 
     // Exibindo a lista de compras em um alerta
     alert(listaExibicao);
