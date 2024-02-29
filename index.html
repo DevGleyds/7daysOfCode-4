@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de compras!</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -17,13 +18,13 @@
     let adicionarMais = "sim";
 
 
-    while (adicionarMais.toLowerCase === "sim") {
+    while (adicionarMais.toLowerCase() === "sim") {
       let comida = prompt("Qual comida você deseja inserir?");
       let categoria = prompt("Em qual categoria essa comida se encaixa: 'frutas', 'laticínios', 'doces' ou 'congelados'?");
       if (categoria.toLowerCase() === "frutas") {
         frutas.push(comida);
       } else if (categoria.toLowerCase() === "laticínios") {
-        laticinios.push(comida);
+        laticínios.push(comida);
       } else if (categoria.toLowerCase() === "doces") {
         doces.push(comida);
       } else if (categoria.toLowerCase() === "congelados") {
@@ -34,7 +35,31 @@
         alert("Desculpe, mas categoria não pré-determinada");
       }
       adicionarMais = prompt("Deseja adicionar mais comida na lista de compras? Responda 'sim' ou 'não'.");
+
+      if (adicionarMais.toLowerCase() !== "sim" && adicionarMais.toLowerCase() !== "não") {
+        alert("Operação não reconhecida! Por favor, responda 'sim' ou 'não'.");
+        adicionarMais = "sim"; // Definindo novamente como "sim" para continuar o loop
+      }
     }
+
+    let listaExibicao = "Lista de Compras:\n\n";
+    listaExibicao += "Frutas:\n";
+    listaExibicao += frutas.join(", ") + "\n\n";
+
+    listaExibicao += "Laticínios:\n";
+    listaExibicao += laticínios.join(", ") + "\n\n";
+
+    listaExibicao += "Doces:\n";
+    listaExibicao += doces.join(", ") + "\n\n";
+
+    listaExibicao += "Congelados:\n";
+    listaExibicao += congelados.join(", ") + "\n\n";
+
+    listaExibicao += "Padaria:\n";
+    listaExibicao += padaria.join(", ") + "\n\n";
+
+    // Exibindo a lista de compras em um alerta
+    alert(listaExibicao);
 
 
 
