@@ -17,7 +17,7 @@
     let padaria = [];
     let outros = [];
     let adicionarMais = "sim";
-
+    let removerItem = "sim";
 
     while (adicionarMais.toLowerCase() === "sim") {
       let comida = prompt("Qual comida você deseja inserir?");
@@ -67,8 +67,43 @@
     // Exibindo a lista de compras em um alerta
     alert(listaExibicao);
 
+    while (removerItem.toLowerCase() === "sim") {
+      let categoriaRemover = prompt("Em qual categoria você deseja remover um item: frutas, laticínios, doces, congelados, padaria ou outros?");
+      let itemRemover = prompt("Qual item você deseja remover?");
 
+      // Lógica para remover o item da categoria correspondente
+      if (categoriaRemover.toLowerCase() === "frutas") {
+        removerItemArray(frutas, itemRemover);
+      } else if (categoriaRemover.toLowerCase() === "laticínios") {
+        removerItemArray(laticínios, itemRemover);
+      } else if (categoriaRemover.toLowerCase() === "doces") {
+        removerItemArray(doces, itemRemover);
+      } else if (categoriaRemover.toLowerCase() === "congelados") {
+        removerItemArray(congelados, itemRemover);
+      } else if (categoriaRemover.toLowerCase() === "padaria") {
+        removerItemArray(padaria, itemRemover);
+      } else if (categoriaRemover.toLowerCase() === "outros") {
+        removerItemArray(outros, itemRemover);
+      } else {
+        alert("Categoria não reconhecida.");
+      }
 
+      removerItem = prompt("Deseja remover mais um item da lista de compras? Responda 'sim' ou 'não'.");
+      if (removerItem.toLowerCase() !== "sim" && removerItem.toLowerCase() !== "não") {
+        alert("Operação não reconhecida! Por favor, responda 'sim' ou 'não'.");
+        removerItem = "sim"; // Definindo novamente como "sim" para continuar o loop
+      }
+    }
+
+    function removerItemArray(array, item) {
+      let index = array.indexOf(item);
+      if (index !== -1) {
+        array.splice(index, 1);
+        console.log("Item removido com sucesso!");
+      } else {
+        console.log("O item não foi encontrado na lista de compras.");
+      }
+    }
 
   </script>
 </body>
